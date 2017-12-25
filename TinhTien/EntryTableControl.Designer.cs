@@ -31,10 +31,10 @@
             this.lblpre_num = new System.Windows.Forms.Label();
             this.lblNum = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnMerge = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblpre_num
@@ -67,16 +67,6 @@
             this.label1.Text = "Giờ vào:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TinhTien.Properties.Resources.table1;
-            this.pictureBox1.Location = new System.Drawing.Point(93, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 79);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
@@ -96,33 +86,58 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnView
+            // 
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Location = new System.Drawing.Point(111, 27);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(92, 45);
+            this.btnView.TabIndex = 6;
+            this.btnView.Text = "Xem";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnMerge
+            // 
+            this.btnMerge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMerge.Location = new System.Drawing.Point(111, 78);
+            this.btnMerge.Name = "btnMerge";
+            this.btnMerge.Size = new System.Drawing.Size(92, 41);
+            this.btnMerge.TabIndex = 7;
+            this.btnMerge.Text = "Nhập Bàn";
+            this.btnMerge.UseVisualStyleBackColor = true;
+            this.btnMerge.Click += new System.EventHandler(this.btnMerge_Click);
+            // 
             // EntryTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btnMerge);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNum);
             this.Controls.Add(this.lblpre_num);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "EntryTableControl";
             this.Size = new System.Drawing.Size(222, 159);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Enter += new System.EventHandler(this.EntryTableControl_Enter);
+            this.Leave += new System.EventHandler(this.EntryTableControl_Leave);
+            this.MouseEnter += new System.EventHandler(this.EntryTableControl_MouseEnter);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblpre_num;
         private System.Windows.Forms.Label lblNum;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnMerge;
     }
 }
