@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS `btuoc`.`Order` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `quantity` DOUBLE NOT NULL,
+  `price` DOUBLE NOT NULL,
+  `datetime` DATETIME NOT NULL,
+  `all_tables_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `datetime`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_Order_tables_idx` (`all_tables_id` ASC),
+  CONSTRAINT `fk_Order_tables`
+    FOREIGN KEY (`all_tables_id`)
+    REFERENCES `btuoc`.`all_tables` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)

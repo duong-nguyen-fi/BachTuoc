@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using RawPrint;
-using System.Diagnostics;
-using System.Threading;
+
 using System.Drawing.Printing;
 using Microsoft.Reporting.WinForms;
 
@@ -17,8 +12,6 @@ namespace TinhTien
 {
     public partial class Summary : Form
     {
-
-        
 
 
         int Num;
@@ -113,11 +106,21 @@ namespace TinhTien
                 new Microsoft.Reporting.WinForms.ReportParameter("rStaff",staff),
                 new ReportParameter("rNum",Num.ToString())
             };
+            
             reportViewer1.LocalReport.SetParameters(paras);
+            //reportViewer1.PrinterSettings.PrinterName = "Foxit Reader PDF Printer";
+            reportViewer1.PrinterSettings.MaximumPage = 1;
+            reportViewer1.PrinterSettings.ToPage = 1;
+            //reportViewer1.PrinterSettings.PrintRange = PrintRange.CurrentPage;
 
             //reportViewer1.RefreshReport();
             ////Controls.Add(reportViewer2);
+            //this.reportViewer1.PrinterSettings.PrinterName = "Foxit Reader PDF Printer"; 
+            //this.reportViewer1.PrinterSettings.MaximumPage = 2;
+            //this.reportViewer1.PrinterSettings.FromPage = 1;
+            //this.reportViewer1.PrinterSettings.ToPage = 1;
             this.reportViewer1.RefreshReport();
+            
         }
 #region old_print
         private void printPaper()
@@ -170,5 +173,10 @@ namespace TinhTien
 
 
         #endregion old_print    
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

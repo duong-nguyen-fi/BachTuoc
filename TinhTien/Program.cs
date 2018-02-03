@@ -16,7 +16,7 @@ namespace TinhTien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TableListForm());
+            Application.Run(new FrmWelcome());
         }
     }
 }

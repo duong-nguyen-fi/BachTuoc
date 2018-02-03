@@ -8,11 +8,14 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>TinhTien</RootNamespace>
     <AssemblyName>TinhTien</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>D:\Soft\btuoc\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,9 +25,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ProductName>Tinh Tien</ProductName>
+    <PublisherName>nzuong</PublisherName>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,7 +39,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -46,7 +52,41 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>46DB33F4925A5F88D24D25C4C14221E4597F255B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>btuocKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bachtuoc_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -69,15 +109,23 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RawPrint, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RawPrint.0.2.0.0\lib\net40\RawPrint.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.10\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Reports, Version=0.9.5821.33857, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Report.NET.0.09.06\lib\net461\Reports.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,6 +137,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component1.Designer.cs">
+      <DependentUpon>Component1.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
@@ -97,40 +151,53 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Food.cs" />
-    <Compile Include="FrmMerge.cs">
+    <Compile Include="forms\FrmReview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMerge.Designer.cs">
+    <Compile Include="forms\FrmReview.Designer.cs">
+      <DependentUpon>FrmReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="helper\DBConnection.cs" />
+    <Compile Include="helper\Food.cs" />
+    <Compile Include="forms\FrmMerge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FrmMerge.Designer.cs">
       <DependentUpon>FrmMerge.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNewTable.cs">
+    <Compile Include="forms\FrmNewTable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNewTable.Designer.cs">
+    <Compile Include="forms\FrmNewTable.Designer.cs">
       <DependentUpon>FrmNewTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="helper\DGVPrinter.cs" />
-    <Compile Include="Receipt.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Table.cs">
+    <Compile Include="forms\FrmWelcome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Table.Designer.cs">
+    <Compile Include="forms\FrmWelcome.Designer.cs">
+      <DependentUpon>FrmWelcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="helper\DGVPrinter.cs" />
+    <Compile Include="helper\FoodList.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="forms\Table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Table.Designer.cs">
       <DependentUpon>Table.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Summary.cs">
+    <Compile Include="forms\Summary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Summary.Designer.cs">
+    <Compile Include="forms\Summary.Designer.cs">
       <DependentUpon>Summary.cs</DependentUpon>
     </Compile>
     <Compile Include="EntryTableControl.cs">
@@ -139,23 +206,29 @@
     <Compile Include="EntryTableControl.Designer.cs">
       <DependentUpon>EntryTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableListForm.cs">
+    <Compile Include="forms\TableListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TableListForm.Designer.cs">
+    <Compile Include="forms\TableListForm.Designer.cs">
       <DependentUpon>TableListForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmMerge.resx">
+    <EmbeddedResource Include="forms\FrmMerge.resx">
       <DependentUpon>FrmMerge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNewTable.resx">
+    <EmbeddedResource Include="forms\FrmNewTable.resx">
       <DependentUpon>FrmNewTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\FrmWelcome.resx">
+      <DependentUpon>FrmWelcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FrmReview.resx">
+      <DependentUpon>FrmReview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rpReceip.rdlc" />
-    <EmbeddedResource Include="Table.resx">
+    <EmbeddedResource Include="forms\Table.resx">
       <DependentUpon>Table.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -168,15 +241,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Summary.resx">
+    <EmbeddedResource Include="forms\Summary.resx">
       <DependentUpon>Summary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EntryTableControl.resx">
       <DependentUpon>EntryTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TableListForm.resx">
+    <EmbeddedResource Include="forms\TableListForm.resx">
       <DependentUpon>TableListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="btuocKey.pfx" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -189,6 +263,7 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Food.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -207,9 +282,9 @@
     <None Include="Resources\table1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -219,6 +294,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bachtuoc_icon.ico" />
+    <Content Include="Resources\btuoc.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\btuoc_create_db.txt" />
+    <Content Include="Resources\create_all_tables.txt" />
+    <Content Include="Resources\create_current_table.txt" />
+    <Content Include="Resources\create_Order.txt" />
+    <Content Include="Resources\create_order_hien_tai_view.txt" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -233,5 +317,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

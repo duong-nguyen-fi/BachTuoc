@@ -1,0 +1,2 @@
+CREATE OR REPLACE  VIEW `Order hien tai` AS SELECT DISTINCT `name` as Ten, `quantity` as SL, b.num as Ban, a.datetime as ngaygio FROM `Order` a , `all_tables` b,
+ `current_table` c WHERE  (a.all_tables_id = c.all_tables_id and b.id = c.all_tables_id ) ORDER BY a.datetime

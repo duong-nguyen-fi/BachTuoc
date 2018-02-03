@@ -35,6 +35,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.btnMerge = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblpre_num
@@ -108,12 +109,23 @@
             this.btnMerge.UseVisualStyleBackColor = true;
             this.btnMerge.Click += new System.EventHandler(this.btnMerge_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(128, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "       ";
+            // 
             // EntryTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnMerge);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnClose);
@@ -126,6 +138,7 @@
             this.Enter += new System.EventHandler(this.EntryTableControl_Enter);
             this.Leave += new System.EventHandler(this.EntryTableControl_Leave);
             this.MouseEnter += new System.EventHandler(this.EntryTableControl_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.EntryTableControl_MouseLeave);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +152,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnMerge;
+        private System.Windows.Forms.Label label3;
     }
 }

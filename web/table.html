@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Get Table Data</h2>
+
+<p id="options"></p>
+<br>
+<button onclick="GoBack()"> Quay Lai </button>
+
+<script>
+var  xmlhttp, myObj, x ;
+
+var href = window.location.href;
+alert(href);
+var url = new URL(href);
+var c = url.searchParams.get("c");
+console.log(c);
+
+
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    	var text ="";
+        myObj = JSON.parse(this.responseText);
+        for (x in myObj) {
+            
+        }
+        
+        document.getElementById("options").innerHTML += text;
+    }
+};
+xmlhttp.open("GET", "getAllTables.php" , true);
+xmlhttp.send();
+
+function selectTable()
+{
+	
+}
+
+</script>
+
+
+</body>
+</html>

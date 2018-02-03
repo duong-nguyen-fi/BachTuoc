@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    width: 100%;
+}
+.option{
+	
+    text-align: center;
+    width: 100%;
+    height: 30%;
+    font-size: 40px;
+}
+#result{
+	width: 100%;
+}
+#num{
+    font-size: 40px;
+    padding: 15px 32px;
+    text-align: center;
+}
+section {
+        
+        
+        border-radius: 1em;
+        padding: 1em;
+        position: relative;
+        top: 30%;
+         }
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<section>
+    <div id="options" ></div>
+    <br>
+    <button onclick="selectTable()" class="button">Chon </button>
+    <br>
+    <p id="num" ></p><br>
+    <div id="result"> KET QUA:</div>
+</section>
+
+<script>
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+
+getTables();
+
+function getTables()
+{
+        xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var text ="<select id='tables' class='option'>";
+            myObj = JSON.parse(this.responseText);
+            for (x in myObj) {
+                text += "<option class='option' value =' "+ myObj[x].all_tables_id  +"'>" + myObj[x].num +" </option>";
+            }
+            text += "</select>";
+            document.getElementById("options").innerHTML = text;
+        }
+    };
+    xmlhttp.open("GET", "getAllTables.php" , true);
+    xmlhttp.send();
+}
+
+
+
+function selectTable()
+{
+	var select = document.getElementById("tables");
+	var id= select.options[select.selectedIndex].value;
+	var num =select.options[select.selectedIndex].text;
+	//alert("ID = " + id + " num= " + num);
+	chooseTable(id, num);
+}
+
+function chooseTable(id,num)
+{
+		var xml_http = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		    	
+		        document.getElementById("result").innerHTML = this.responseText;
+                document.getElementById("num").innerHTML = "Ban So "+num;
+                getTables();
+		    }
+		};
+	xmlhttp.open("GET", "table.php?id="+id+"&num="+num , true);
+	xmlhttp.send();
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>

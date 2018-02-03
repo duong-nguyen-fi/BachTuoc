@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS `btuoc`.`all_tables` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `num` INT NULL,
+  PRIMARY KEY (`id`))
